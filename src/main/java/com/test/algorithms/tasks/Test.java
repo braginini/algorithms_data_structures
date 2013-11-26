@@ -1,4 +1,4 @@
-package com.test.algorithms.graph.tasks;
+package com.test.algorithms.tasks;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package com.test.algorithms.graph.datastructure;
+package com.test.algorithms.datastructure;
 
 /**
  * Created by Mikhail Bragin

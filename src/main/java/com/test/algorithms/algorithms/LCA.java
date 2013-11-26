@@ -1,4 +1,4 @@
-package com.test.algorithms.graph.algorithms;
+package com.test.algorithms.algorithms;
 
 import java.util.List;
 import java.util.Stack;

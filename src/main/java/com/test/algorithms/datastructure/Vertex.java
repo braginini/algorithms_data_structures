@@ -1,4 +1,4 @@
-package com.test.algorithms.graph.datastructure;
+package com.test.algorithms.datastructure;
 
 import java.util.Collection;
 import java.util.HashMap;

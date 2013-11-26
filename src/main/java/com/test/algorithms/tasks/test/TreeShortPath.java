@@ -1,4 +1,4 @@
-package com.test.algorithms.graph.tasks.test;
+package com.test.algorithms.tasks.test;
 
 /**
  * Given 2 nodes v and w find the Least Common Ancestor

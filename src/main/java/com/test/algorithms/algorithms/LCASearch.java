@@ -1,10 +1,8 @@
-package com.test.algorithms.graph.algorithms;
+package com.test.algorithms.algorithms;
 
-import com.test.algorithms.graph.datastructure.Tree;
+import com.test.algorithms.datastructure.Tree;
 
-import java.util.ArrayList;
 import java.util.EmptyStackException;
-import java.util.List;
 import java.util.Stack;
 
 /**

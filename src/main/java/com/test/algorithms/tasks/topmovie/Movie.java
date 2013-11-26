@@ -1,4 +1,4 @@
-package com.test.algorithms.graph.tasks.topmovie;
+package com.test.algorithms.tasks.topmovie;
 
 import java.util.ArrayList;
 import java.util.List;

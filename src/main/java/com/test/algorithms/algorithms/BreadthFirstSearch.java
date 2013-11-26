@@ -1,7 +1,7 @@
-package com.test.algorithms.graph.algorithms;
+package com.test.algorithms.algorithms;
 
-import com.test.algorithms.graph.datastructure.UndirectedGraph;
-import com.test.algorithms.graph.datastructure.Vertex;
+import com.test.algorithms.datastructure.UndirectedGraph;
+import com.test.algorithms.datastructure.Vertex;
 
 import java.util.Collection;
 import java.util.HashMap;

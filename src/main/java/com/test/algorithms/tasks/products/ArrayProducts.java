@@ -1,7 +1,4 @@
-package com.test.algorithms.graph.tasks.products;
-
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+package com.test.algorithms.tasks.products;
 
 /**
  * Created by Mikhail Bragin

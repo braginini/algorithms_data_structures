@@ -1,3 +1,5 @@
+package com.test.algorithms;
+
 import java.util.Collection;
 
 // Maintains a network of movies and customers

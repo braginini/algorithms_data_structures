@@ -1,8 +1,7 @@
-package com.test.algorithms.graph.datastructure;
+package com.test.algorithms.datastructure;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.TreeMap;
 
 /**
  * Created by Mikhail Bragin
