@@ -39,28 +39,6 @@ public class Test {
         return root;
     }
 
-    public static void linkADD() {
-
-        Node root = getRoot();
-
-        link(root);
-
-        System.out.println();
-
-        Queue<Node> queue = new LinkedList<Node>();
-        queue.offer(root);
-
-        while (!queue.isEmpty()) {
-            Node n = queue.poll();
-            link(n, n.Idx, n.Parent);
-
-            for (int i = 0; i < n.Children.length; i++) {
-                n.Children[i].Idx = i;
-                queue.offer(n.Children[i]);
-            }
-        }
-    }
-
 	public static void link(Node current) {
 
 		if (current.Children == null)
@@ -77,7 +55,6 @@ public class Test {
 	}
 
 	public static void link(Node current, int idx, Node parent) {
-        if (idx < 0) return; //for linkADD() method
 
 		if (idx < parent.Children.length - 1) { //if this node is not the last child of a parent
 			current.Right = parent.Children[idx + 1]; //we set next parent's child as a right neighbour
@@ -103,7 +80,5 @@ public class Test {
 	public static class Node {
 		public Node[] Children;
 		public Node Right;
-        public Node Parent; //additional field for linkADD()
-        public int Idx = -1; //additional field for linkADD()
 	}
 }
