@@ -1,5 +1,6 @@
 package com.test.algorithms.datastructure;
 
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -50,31 +51,27 @@ public class HashMap<K, V> {
         }
 
         table[hash] = new Node(key, value, table[hash]);
+        size++;
 
         if (size > (int) (table.length * loadFactor))
-            resizeAndRehash();
+            resizeAndRehash(table.length * 2);
     }
 
-    private void resizeAndRehash() {
+    private void resizeAndRehash(int newCapacity) {
 
-        Node[] oldTable = table;
-        table = new Node[table.length * 2];
-        size = 0;
-        bucketsLoaded = 0;
+        Node[] newTable = new Node[newCapacity];
 
-        for (Node n : oldTable) {
-            if (n != null) {
+        for (Node n : table) {
+            while (n != null) {
                 Node next = n.next;
-                while (next != null) {
-                    Node curr = next;
-                    put((K) curr.key, (V) curr.value);
-                    next = curr.next;
-                    curr.next = null;
-                }
-                n.next = null;
-                put((K) n.key, (V) n.value);
+                int hash = hashCode((K) n.key, newCapacity);
+                n.next = newTable[hash];
+                newTable[hash] = n;
+                n = next;
             }
         }
+
+        table = newTable;
     }
 
     private int hashCode(K key, int size) {
