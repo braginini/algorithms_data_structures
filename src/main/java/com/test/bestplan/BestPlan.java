@@ -3,6 +3,7 @@ package com.test.bestplan;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Map;
 
 /**
  * I assume that feature and plan number is not big and each feature should be covered by at least one plan.
@@ -18,7 +19,6 @@ public class BestPlan {
 		HashSet<Plan> plans = new HashSet<Plan>();
 
 		HashSet<String> features = new HashSet<String>();
-
 		long start = System.currentTimeMillis();
 		for (int i = 0; i < 11; i++) {
 			plans.add(new Plan("p" + i, 1.0, "f" + i));

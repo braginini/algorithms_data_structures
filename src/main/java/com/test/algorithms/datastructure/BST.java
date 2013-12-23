@@ -2,6 +2,7 @@ package com.test.algorithms.datastructure;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.TreeMap;
 
 /**
  * Created by Mikhail Bragin
@@ -38,9 +39,9 @@ public class BST<K extends Comparable<K>, V> {
         while (x != null) {
             int cmp = key.compareTo(x.key);
 
-            if (cmp > 0)
+            if (cmp < 0)
                 x = x.left;
-            else if (cmp < 0)
+            else if (cmp > 0)
                 x = x.right;
             else if (cmp == 0)
                 return x.value;
@@ -129,7 +130,6 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     public void delete(K key) {
-
         root = delete(root, key);
     }
 
@@ -143,7 +143,7 @@ public class BST<K extends Comparable<K>, V> {
         if (cmp < 0)
             x.left = delete(x.left, key);
         else if (cmp > 0)
-            x.right = delete(x.left, key);
+            x.right = delete(x.right, key);
         else {
             if (x.right == null)
                 return x.left;
