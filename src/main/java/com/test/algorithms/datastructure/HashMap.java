@@ -26,11 +26,9 @@ public class HashMap<K, V> {
         int hash = hashCode(key, table.length);
 
         Node n = table[hash];
-
         while (n != null) {
             if (n.key.equals(key))
                 return (V) n.value;
-
             n = n.next;
         }
 
@@ -44,11 +42,17 @@ public class HashMap<K, V> {
 
         int hash = hashCode(key, table.length);
 
-        insertIntoTable(new Node(key, value), hash);
-
-        if (size > (int) (table.length * loadFactor)) {
-            resizeAndRehash();
+        for (Node n = table[hash]; n != null; n = n.next) {
+            if (n.key.equals(key)) {
+                n.value = value;
+                return;
+            }
         }
+
+        table[hash] = new Node(key, value, table[hash]);
+
+        if (size > (int) (table.length * loadFactor))
+            resizeAndRehash();
     }
 
     private void resizeAndRehash() {
@@ -71,26 +75,6 @@ public class HashMap<K, V> {
                 put((K) n.key, (V) n.value);
             }
         }
-    }
-
-    private void insertIntoTable(Node node, int hash) {
-
-        Node n = table[hash];
-
-        while (n != null) {
-            if (n.key.equals(node.key)) {
-                n.value = node.value;
-                return;
-            }
-            n = n.next;
-        }
-
-        node.next = table[hash];
-        if (node.next == null)
-            bucketsLoaded++;
-
-        table[hash] = node;
-        size++;
     }
 
     private int hashCode(K key, int size) {
