@@ -75,7 +75,7 @@ public class HashMap<K, V> {
     }
 
     private int hashCode(K key, int size) {
-        return Math.abs(key.hashCode()) % size;
+        return (key.hashCode() & 0x7FFFFFFF) % size;
     }
 
     class Node<K, V> {
