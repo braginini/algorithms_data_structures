@@ -34,7 +34,6 @@ public class MaxHeap<E extends Comparable<E>> {
     public E max() {
         if (size > 0)
             return (E) table[0];
-
         return null;
     }
 
