@@ -131,6 +131,17 @@ public class DataStructureTasks {
         System.out.println(System.currentTimeMillis() - ts);
     }
 
+    /**
+     * iceman and cinema are anagrams (second word can be constructed from the first one)
+     * n*logn solution
+     *
+     * first sort both arrays
+     * then compare characters
+     *
+     * @param s1
+     * @param s2
+     * @return
+     */
     public static boolean areAnagrams(String s1, String s2) {
         if (s1 == null || s2 == null)
             return false;
