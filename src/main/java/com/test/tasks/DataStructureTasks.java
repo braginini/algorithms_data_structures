@@ -100,12 +100,11 @@ public class DataStructureTasks {
         System.out.println(newChar);
 
 
-
     }
 
     /**
-     *
      * N^2 solution
+     *
      * @param str
      */
     public static void removeDuplicates(char[] str) {
@@ -134,7 +133,7 @@ public class DataStructureTasks {
     /**
      * iceman and cinema are anagrams (second word can be constructed from the first one)
      * n*logn solution
-     *
+     * <p/>
      * first sort both arrays
      * then compare characters
      *
@@ -163,11 +162,75 @@ public class DataStructureTasks {
         return true;
     }
 
+    /**
+     * N complexity solution, requires src array to fit spaceCount*2 additional symbols since %20 is 3 characters
+     * e.g char[] for string "ab " should be size 5 "ab \0\0"
+     *
+     * @param str
+     * @param len
+     */
+    public static void replaceWhiteSpaces(char[] str, int len) {
+
+        int newLen = len;
+
+        for (int i = 0; i < len; i++) {
+            if (str[i] == ' ')
+                newLen += 2;
+        }
+
+        int shift = newLen - len;
+        for (int i = len - 1; i >= 0; i--) {
+            if (str[i] == ' ') {
+                shift -= 2;
+                str[i + shift] = '%';
+                str[i + shift + 1] = '2';
+                str[i + shift + 2] = '0';
+            } else {
+                str[i + shift] = str[i];
+            }
+        }
+
+        System.out.println(str);
+
+    }
+
+    public static void ReplaceFun(char[] str, int length) {
+        int spaceCount = 0, newLength, i = 0;
+        for (i = 0; i < length; i++) {
+            if (str[i] == ' ') {
+                spaceCount++;
+            }
+        }
+        newLength = length + spaceCount * 2;
+        str[newLength] = '\0';
+        for (i = length - 1; i >= 0; i--) {
+            if (str[i] == ' ') {
+                str[newLength - 1] = '0';
+                str[newLength - 2] = '2';
+                str[newLength - 3] = '%';
+                newLength = newLength - 3;
+            } else {
+                str[newLength - 1] = str[i];
+                newLength = newLength - 1;
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         //reverseCStyleString();
         //removeDubs();
-        areAnagrams("cinema", "icemam");
+        //areAnagrams("cinema", "icemam");
+        //replaceWhiteSpaces("aa bb c".toCharArray());
+        replaceWhiteSpaces("   \0\0\0\0\0\0".toCharArray(), 3);
+        String s = new String();
+
+        int[][] m = new int[][]{
+                {1, 2, 3, 4},
+                {5, 6, 7, 8},
+                {9, 10, 11, 12},
+                {13, 14, 15, 16}
+        };
     }
 
 

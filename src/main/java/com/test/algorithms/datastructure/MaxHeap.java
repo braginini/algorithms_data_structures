@@ -4,12 +4,13 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
+ * We represent a heap of N N in private array pq[] of length N+1, with pq[0] unused and the heap in pq[1] through pq[N]
  * Created by Mike on 12/25/13.
  */
 public class MaxHeap<E extends Comparable<E>> {
 
     Object[] table;
-    int size;
+    int N = 1;
 
     public MaxHeap(int initialCapacity) {
         this.table = new Object[initialCapacity];
@@ -21,36 +22,36 @@ public class MaxHeap<E extends Comparable<E>> {
 
     public void insert(E e) {
 
-        if (table.length == size)
+        if (table.length == N)
             resize(table.length * 2);
 
-        int i = size;
+        int i = N;
         table[i] = e;
         swim(i);
-        size++;
+        N++;
 
     }
 
     public E max() {
-        if (size > 0)
-            return (E) table[0];
+        if (N > 1)
+            return (E) table[1];
         return null;
     }
 
     public E delMax() {
-        if (size == 0)
+        if (N == 1)
             return null;
 
-        E max = (E) table[0];
-        exch(0, size--);
-        sink(0);
-        table[size + 1] = null;
-        //todo decrease size of table
+        E max = (E) table[1];
+        exch(1, N--);
+        sink(1);
+        table[N + 1] = null;
+        //todo decrease N of table
         return max;
     }
 
     private void swim(int i) {
-        while (i > 0 && less(i / 2, i)) {
+        while (i > 1 && less(i / 2, i)) {
             exch(i / 2, i);
             i = i / 2;
         }
@@ -59,8 +60,8 @@ public class MaxHeap<E extends Comparable<E>> {
     private void sink(int i) {
         int j = 2 * i; //go to children
 
-        while (j < table.length - 1) {
-            if (j < table.length - 1 && less(j, j + 1))     //choose j+1 child if j < j+1
+        while (j <= N) {
+            if (j < N && less(j, j + 1))     //choose j+1 child if j < j+1
                 j++;
 
             if (!less(i, j))
