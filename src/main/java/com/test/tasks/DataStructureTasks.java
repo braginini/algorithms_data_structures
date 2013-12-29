@@ -62,13 +62,11 @@ public class DataStructureTasks {
      * n*logn solution
      */
     private static void removeDubs() {
-        Random r = new Random();
         char[] s = new char[]{'a', 'a', 'a', 'a', 'c', 'b', 'b', 'b'};
         /*char[] s = new char[1000000];
         for (int i = 0; i < 1000000; i++) {
             s[i] = (char) r.nextInt(256);
         }*/
-
         //removeDuplicates(s);
         long ts = System.currentTimeMillis();
         Arrays.sort(s);
@@ -83,7 +81,7 @@ public class DataStructureTasks {
                 size--;
             }
 
-            i = j - 1;
+            i = j;
         }
 
         char[] newChar = new char[size];
