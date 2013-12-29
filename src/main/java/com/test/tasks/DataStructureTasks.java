@@ -14,7 +14,7 @@ public class DataStructureTasks {
         char[] chars = s.toCharArray();
         int n = 0; //number of iterations;
 
-        for (int i = 0; i < (s.length()) / 2; i++) {
+        /*for (int i = 0; i < (s.length()) / 2; i++) {
             char ith = s.charAt(i);
             int otherIdx = s.length() - 1 - i;
             chars[i] = chars[otherIdx];
@@ -24,7 +24,7 @@ public class DataStructureTasks {
 
         s = new String(chars);
         //s = new StringBuilder(s).reverse().toString();
-        System.out.println(s + " " + n);
+        System.out.println(s + " " + n);*/
 
         s = "abcd0"; //C-style
         n = 0;
