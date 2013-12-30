@@ -233,7 +233,6 @@ public class DataStructureTasks {
 
     }
 
-
     public static void main(String[] args) {
         //reverseCStyleString();
         //removeDubs();
@@ -250,6 +249,11 @@ public class DataStructureTasks {
         };
 
         int i = m[3][0];
+    }
+
+    //this data structre
+    class MedianDataStructure {
+
     }
 
 
