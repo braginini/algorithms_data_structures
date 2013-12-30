@@ -25,11 +25,6 @@ public class MedianDataStructure {
         Integer leftMax = left.peek();
         Integer rightMin = right.peek();
 
-        /*if ((Integer) i <= leftMax)
-            left.add(i);
-        else
-            right.add(i);*/
-
         //both heaps are empty
         if (leftMax == null && rightMin == null) {
             left.add(i);
