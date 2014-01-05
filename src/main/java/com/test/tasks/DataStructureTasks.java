@@ -233,27 +233,102 @@ public class DataStructureTasks {
 
     }
 
+    /**
+     * Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0.
+     *
+     * N+M space and MN time complexity
+     * @param m
+     */
+    public static void setMatrixRowColumnTOZeroIfZeroElement(int[][] m) {
+
+        boolean[] rows = new boolean[m.length];
+        boolean[] cols = new boolean[m[0].length];
+
+        //find 0 elements and mark that it's row and column should be zeroed
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+                if (m[i][j] == 0) {
+                    rows[i] = true;
+                    cols[j] = true;
+                }
+            }
+        }
+
+        //do a second pass to set element to zero if its row or column should be zeroed
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+                if (rows[i] || cols[j])
+                    m[i][j] = 0;
+            }
+        }
+
+        System.out.println();
+
+    }
+
+    public static boolean isRotation(String s1, String s2) {
+
+        if (s1.length() > 0 && s1.length() == s2.length()) {
+            String s3 = s1.concat(s1);
+            return s3.contains(s2);
+        }
+
+        return false;
+    }
+
+    public static LinkedListNode nthToLast(LinkedListNode head, int n) {
+
+        LinkedListNode p1 = head;
+        LinkedListNode p2 = head;
+
+        for (int i = 0; i < n - 1; i++) {
+
+            if (p2 == null)  //list is smaller than n
+                return null;
+
+            p2 = p2.next;
+        }
+
+        while (p2.next != null) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        return p1;
+
+    }
+
     public static void main(String[] args) {
         //reverseCStyleString();
         //removeDubs();
         //areAnagrams("cinema", "icemam");
         //replaceWhiteSpaces("aa bb c".toCharArray());
-        replaceWhiteSpaces("   \0\0\0\0\0\0".toCharArray(), 3);
-        String s = new String();
-
-        int[][] m = new int[][]{
+        //replaceWhiteSpaces("   \0\0\0\0\0\0".toCharArray(), 3);
+        /*setMatrixRowColumnTOZeroIfZeroElement(new int[][]{
                 {0, 1, 2, 3},
                 {4, 5, 6, 7},
                 {8, 9, 10, 11},
-                {12, 13, 14, 15}
-        };
+                {12, 13, 0, 15},
+                {16, 17, 18, 19},
+        });*/
 
-        int i = m[3][0];
+        //boolean f = isRotation("mike", "ikem");
+        //nthToLast(new LinkedListNode(1), 1);
+        int max = ~0;
     }
 
     //this data structre
     class MedianDataStructure {
 
+    }
+
+    static class LinkedListNode {
+        int data;
+        LinkedListNode next;
+
+        LinkedListNode(int data) {
+            this.data = data;
+        }
     }
 
 
